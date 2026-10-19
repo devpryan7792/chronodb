@@ -21,8 +21,8 @@ jobs:
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: ${{ matrix.rust }}
-      - run: cargo test --all-targets
-      - run: cargo test --release
+      - run: cargo test --locked --all-targets
+      - run: cargo test --locked --release
 
   lint:
     name: fmt + clippy
