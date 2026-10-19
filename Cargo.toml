@@ -1,0 +1,43 @@
+[package]
+name = "chronodb"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "ChronoDB — embedded append-only time-travel storage engine"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/devpryan7792/chronodb"
+keywords = ["database", "embedded", "time-series", "mmap", "storage-engine"]
+categories = ["database-implementations", "filesystem"]
+
+[workspace]
+
+[lib]
+name = "chronodb"
+path = "src/lib.rs"
+
+# Binaries are enabled as they are implemented (bootstrap gate).
+[[bin]]
+name = "chronoctl"
+path = "src/bin/chronoctl.rs"
+
+[[bin]]
+name = "chronodb"
+path = "src/bin/chronodb.rs"
+
+[dependencies]
+byteorder = "1.5"
+thiserror = "2.0"
+parking_lot = "0.12"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.test]
+opt-level = 1
+
+[profile.test.package."*"]
+opt-level = 3
