@@ -1,0 +1,13 @@
+/target
+**/*.rs.bk
+
+# ChronoDB data files and benchmark artifacts
+*.cdb
+*.db
+/bench/workdir
+/bin
+
+# Python
+__pycache__/
+*.pyc
+.venv/
