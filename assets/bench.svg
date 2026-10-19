@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 754" width="1100" height="754" role="img" aria-label="ChronoDB read latency compared to SQLite and DuckDB">
+<style>text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}</style>
+<rect width="1100" height="754" fill="#0b0f19"/>
+<text x="24" y="40" font-size="23" font-weight="700" fill="#e5e7eb">ChronoDB read latency vs SQLite &amp; DuckDB</text>
+<text x="24" y="64" font-size="13.5" fill="#94a3b8">200,000 records × 64 B over 1,000 entities · release build · warm cache · per-call latency, lower is better (log scale)</text>
+<rect x="850" y="30" width="14" height="10" rx="2" fill="#2dd4bf" fill-opacity="1.0"/>
+<text x="870" y="39" font-size="12.5" fill="#94a3b8">p50</text>
+<rect x="942" y="30" width="14" height="10" rx="2" fill="#2dd4bf" fill-opacity="0.5"/>
+<text x="962" y="39" font-size="12.5" fill="#94a3b8">p99</text>
+<rect x="16" y="88" width="1068" height="190" rx="10" fill="#0f172a"/>
+<text x="32" y="112" font-size="15" font-weight="600" fill="#e5e7eb">as-of point query</text>
+<text x="232" y="112" font-size="12" fill="#64748b">50 000 queries · random entity @ exact record timestamp</text>
+<line x1="250.0" y1="128" x2="250.0" y2="258" stroke="#1e293b" stroke-width="1"/>
+<text x="250.0" y="270" font-size="10.5" fill="#64748b" text-anchor="middle">0.1 µs</text>
+<line x1="386.0" y1="128" x2="386.0" y2="258" stroke="#1e293b" stroke-width="1"/>
+<text x="386.0" y="270" font-size="10.5" fill="#64748b" text-anchor="middle">1 µs</text>
+<line x1="522.0" y1="128" x2="522.0" y2="258" stroke="#1e293b" stroke-width="1"/>
+<text x="522.0" y="270" font-size="10.5" fill="#64748b" text-anchor="middle">10 µs</text>
+<line x1="658.0" y1="128" x2="658.0" y2="258" stroke="#1e293b" stroke-width="1"/>
+<text x="658.0" y="270" font-size="10.5" fill="#64748b" text-anchor="middle">100 µs</text>
+<line x1="794.0" y1="128" x2="794.0" y2="258" stroke="#1e293b" stroke-width="1"/>
+<text x="794.0" y="270" font-size="10.5" fill="#64748b" text-anchor="middle">1 ms</text>
+<line x1="930.0" y1="128" x2="930.0" y2="258" stroke="#1e293b" stroke-width="1"/>
+<text x="930.0" y="270" font-size="10.5" fill="#64748b" text-anchor="middle">10 ms</text>
+<text x="32" y="145" font-size="12.5" fill="#2dd4bf" font-weight="700">▸ ChronoDB</text>
+<text x="32" y="161" font-size="10.5" fill="#64748b" class="mono">1.00×</text>
+<rect x="250" y="136" width="95.1" height="11" rx="2" fill="#2dd4bf" fill-opacity="1.0"/>
+<text x="351.1" y="145.5" font-size="10.5" fill="#94a3b8" class="mono">0.50</text>
+<rect x="250" y="150" width="179.3" height="11" rx="2" fill="#2dd4bf" fill-opacity="0.5"/>
+<text x="435.3" y="159.5" font-size="10.5" fill="#94a3b8" class="mono">2.08</text>
+<text x="32" y="177" font-size="12.5" fill="#60a5fa" font-weight="400">SQLite</text>
+<text x="32" y="193" font-size="10.5" fill="#64748b" class="mono">12.50×</text>
+<rect x="250" y="168" width="244.5" height="11" rx="2" fill="#60a5fa" fill-opacity="1.0"/>
+<text x="500.5" y="177.5" font-size="10.5" fill="#94a3b8" class="mono">6.28</text>
+<rect x="250" y="182" width="309.2" height="11" rx="2" fill="#60a5fa" fill-opacity="0.5"/>
+<text x="565.2" y="191.5" font-size="10.5" fill="#94a3b8" class="mono">18.8</text>
+<text x="32" y="209" font-size="12.5" fill="#818cf8" font-weight="400">SQLite (mmap)</text>
+<text x="32" y="225" font-size="10.5" fill="#64748b" class="mono">10.27×</text>
+<rect x="250" y="200" width="232.9" height="11" rx="2" fill="#818cf8" fill-opacity="1.0"/>
+<text x="488.9" y="209.5" font-size="10.5" fill="#94a3b8" class="mono">5.16</text>
+<rect x="250" y="214" width="297.7" height="11" rx="2" fill="#818cf8" fill-opacity="0.5"/>
+<text x="553.7" y="223.5" font-size="10.5" fill="#94a3b8" class="mono">15.4</text>
+<text x="32" y="241" font-size="12.5" fill="#f59e0b" font-weight="400">DuckDB 1.5.6</text>
+<text x="32" y="257" font-size="10.5" fill="#64748b" class="mono">2721.56×</text>
+<rect x="250" y="232" width="562.4" height="11" rx="2" fill="#f59e0b" fill-opacity="1.0"/>
+<text x="818.4" y="241.5" font-size="10.5" fill="#94a3b8" class="mono">1366</text>
+<rect x="250" y="246" width="598.2" height="11" rx="2" fill="#f59e0b" fill-opacity="0.5"/>
+<text x="854.2" y="255.5" font-size="10.5" fill="#94a3b8" class="mono">2503</text>
+<rect x="16" y="290" width="1068" height="190" rx="10" fill="#0f172a"/>
+<text x="32" y="314" font-size="15" font-weight="600" fill="#e5e7eb">latest lookup</text>
+<text x="232" y="314" font-size="12" fill="#64748b">20 000 lookups · newest version per entity</text>
+<line x1="250.0" y1="330" x2="250.0" y2="460" stroke="#1e293b" stroke-width="1"/>
+<text x="250.0" y="472" font-size="10.5" fill="#64748b" text-anchor="middle">0.1 µs</text>
+<line x1="386.0" y1="330" x2="386.0" y2="460" stroke="#1e293b" stroke-width="1"/>
+<text x="386.0" y="472" font-size="10.5" fill="#64748b" text-anchor="middle">1 µs</text>
+<line x1="522.0" y1="330" x2="522.0" y2="460" stroke="#1e293b" stroke-width="1"/>
+<text x="522.0" y="472" font-size="10.5" fill="#64748b" text-anchor="middle">10 µs</text>
+<line x1="658.0" y1="330" x2="658.0" y2="460" stroke="#1e293b" stroke-width="1"/>
+<text x="658.0" y="472" font-size="10.5" fill="#64748b" text-anchor="middle">100 µs</text>
+<line x1="794.0" y1="330" x2="794.0" y2="460" stroke="#1e293b" stroke-width="1"/>
+<text x="794.0" y="472" font-size="10.5" fill="#64748b" text-anchor="middle">1 ms</text>
+<line x1="930.0" y1="330" x2="930.0" y2="460" stroke="#1e293b" stroke-width="1"/>
+<text x="930.0" y="472" font-size="10.5" fill="#64748b" text-anchor="middle">10 ms</text>
+<text x="32" y="347" font-size="12.5" fill="#2dd4bf" font-weight="700">▸ ChronoDB</text>
+<text x="32" y="363" font-size="10.5" fill="#64748b" class="mono">1.00×</text>
+<rect x="250" y="338" width="27.8" height="11" rx="2" fill="#2dd4bf" fill-opacity="1.0"/>
+<text x="283.8" y="347.5" font-size="10.5" fill="#94a3b8" class="mono">0.16</text>
+<rect x="250" y="352" width="83.3" height="11" rx="2" fill="#2dd4bf" fill-opacity="0.5"/>
+<text x="339.3" y="361.5" font-size="10.5" fill="#94a3b8" class="mono">0.41</text>
+<text x="32" y="379" font-size="12.5" fill="#60a5fa" font-weight="400">SQLite</text>
+<text x="32" y="395" font-size="10.5" fill="#64748b" class="mono">31.96×</text>
+<rect x="250" y="370" width="232.3" height="11" rx="2" fill="#60a5fa" fill-opacity="1.0"/>
+<text x="488.3" y="379.5" font-size="10.5" fill="#94a3b8" class="mono">5.11</text>
+<rect x="250" y="384" width="282.5" height="11" rx="2" fill="#60a5fa" fill-opacity="0.5"/>
+<text x="538.5" y="393.5" font-size="10.5" fill="#94a3b8" class="mono">11.9</text>
+<text x="32" y="411" font-size="12.5" fill="#818cf8" font-weight="400">SQLite (mmap)</text>
+<text x="32" y="427" font-size="10.5" fill="#64748b" class="mono">28.83×</text>
+<rect x="250" y="402" width="226.3" height="11" rx="2" fill="#818cf8" fill-opacity="1.0"/>
+<text x="482.3" y="411.5" font-size="10.5" fill="#94a3b8" class="mono">4.61</text>
+<rect x="250" y="416" width="287.1" height="11" rx="2" fill="#818cf8" fill-opacity="0.5"/>
+<text x="543.1" y="425.5" font-size="10.5" fill="#94a3b8" class="mono">12.9</text>
+<text x="32" y="443" font-size="12.5" fill="#f59e0b" font-weight="400">DuckDB 1.5.6</text>
+<text x="32" y="459" font-size="10.5" fill="#64748b" class="mono">7145.09×</text>
+<rect x="250" y="434" width="551.9" height="11" rx="2" fill="#f59e0b" fill-opacity="1.0"/>
+<text x="807.9" y="443.5" font-size="10.5" fill="#94a3b8" class="mono">1143</text>
+<rect x="250" y="448" width="583.3" height="11" rx="2" fill="#f59e0b" fill-opacity="0.5"/>
+<text x="839.3" y="457.5" font-size="10.5" fill="#94a3b8" class="mono">1946</text>
+<rect x="16" y="492" width="1068" height="190" rx="10" fill="#0f172a"/>
+<text x="32" y="516" font-size="15" font-weight="600" fill="#e5e7eb">entity history scan</text>
+<text x="232" y="516" font-size="12" fill="#64748b">2 000 scans · 200 records each, payloads materialised</text>
+<line x1="250.0" y1="532" x2="250.0" y2="662" stroke="#1e293b" stroke-width="1"/>
+<text x="250.0" y="674" font-size="10.5" fill="#64748b" text-anchor="middle">0.1 µs</text>
+<line x1="386.0" y1="532" x2="386.0" y2="662" stroke="#1e293b" stroke-width="1"/>
+<text x="386.0" y="674" font-size="10.5" fill="#64748b" text-anchor="middle">1 µs</text>
+<line x1="522.0" y1="532" x2="522.0" y2="662" stroke="#1e293b" stroke-width="1"/>
+<text x="522.0" y="674" font-size="10.5" fill="#64748b" text-anchor="middle">10 µs</text>
+<line x1="658.0" y1="532" x2="658.0" y2="662" stroke="#1e293b" stroke-width="1"/>
+<text x="658.0" y="674" font-size="10.5" fill="#64748b" text-anchor="middle">100 µs</text>
+<line x1="794.0" y1="532" x2="794.0" y2="662" stroke="#1e293b" stroke-width="1"/>
+<text x="794.0" y="674" font-size="10.5" fill="#64748b" text-anchor="middle">1 ms</text>
+<line x1="930.0" y1="532" x2="930.0" y2="662" stroke="#1e293b" stroke-width="1"/>
+<text x="930.0" y="674" font-size="10.5" fill="#64748b" text-anchor="middle">10 ms</text>
+<text x="32" y="549" font-size="12.5" fill="#2dd4bf" font-weight="700">▸ ChronoDB</text>
+<text x="32" y="565" font-size="10.5" fill="#64748b" class="mono">1.00×</text>
+<rect x="250" y="540" width="322.8" height="11" rx="2" fill="#2dd4bf" fill-opacity="1.0"/>
+<text x="578.8" y="549.5" font-size="10.5" fill="#94a3b8" class="mono">23.6</text>
+<rect x="250" y="554" width="361.1" height="11" rx="2" fill="#2dd4bf" fill-opacity="0.5"/>
+<text x="617.1" y="563.5" font-size="10.5" fill="#94a3b8" class="mono">45.2</text>
+<text x="32" y="581" font-size="12.5" fill="#60a5fa" font-weight="400">SQLite</text>
+<text x="32" y="597" font-size="10.5" fill="#64748b" class="mono">10.20×</text>
+<rect x="250" y="572" width="460.0" height="11" rx="2" fill="#60a5fa" fill-opacity="1.0"/>
+<text x="716.0" y="581.5" font-size="10.5" fill="#94a3b8" class="mono">241</text>
+<rect x="250" y="586" width="486.2" height="11" rx="2" fill="#60a5fa" fill-opacity="0.5"/>
+<text x="742.2" y="595.5" font-size="10.5" fill="#94a3b8" class="mono">376</text>
+<text x="32" y="613" font-size="12.5" fill="#818cf8" font-weight="400">SQLite (mmap)</text>
+<text x="32" y="629" font-size="10.5" fill="#64748b" class="mono">5.56×</text>
+<rect x="250" y="604" width="424.2" height="11" rx="2" fill="#818cf8" fill-opacity="1.0"/>
+<text x="680.2" y="613.5" font-size="10.5" fill="#94a3b8" class="mono">131</text>
+<rect x="250" y="618" width="457.8" height="11" rx="2" fill="#818cf8" fill-opacity="0.5"/>
+<text x="713.8" y="627.5" font-size="10.5" fill="#94a3b8" class="mono">232</text>
+<text x="32" y="645" font-size="12.5" fill="#f59e0b" font-weight="400">DuckDB 1.5.6</text>
+<text x="32" y="661" font-size="10.5" fill="#64748b" class="mono">50.53×</text>
+<rect x="250" y="636" width="554.5" height="11" rx="2" fill="#f59e0b" fill-opacity="1.0"/>
+<text x="810.5" y="645.5" font-size="10.5" fill="#94a3b8" class="mono">1195</text>
+<rect x="250" y="650" width="604.3" height="11" rx="2" fill="#f59e0b" fill-opacity="0.5"/>
+<text x="860.3" y="659.5" font-size="10.5" fill="#94a3b8" class="mono">2776</text>
+<text x="24" y="726" font-size="11.5" fill="#64748b">μs per call · p50 / p99 shown · source: bench/results/read-latency-2026-10-19.json</text>
+<text x="24" y="743" font-size="11.5" fill="#64748b">ChronoDB is timed in-process (Rust); SQLite and DuckDB include the Python client round-trip — the comparison is conservative for them.</text>
+<text x="1076" y="743" font-size="11.5" fill="#64748b" text-anchor="end">github.com/devpryan7792/chronodb</text>
+</svg>

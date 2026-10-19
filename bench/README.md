@@ -53,6 +53,10 @@ combined `comparison.json`) land in `--workdir`.
 
 ## Results
 
+Recorded runs live in [`bench/results/`](results/) as JSON; the newest one is
+rendered into the README chart by `python3 bench/render_charts.py` (stdlib
+only), so the picture can never drift from the numbers.
+
 Release build, Arch Linux (Python 3.14, SQLite 3.x, DuckDB 1.5.6 in a venv),
 200 000 records × 64 B payload over 1 000 entities on tmpfs, 50 000 as-of
 queries / 20 000 latest lookups / 2 000 entity scans. Every engine resolved

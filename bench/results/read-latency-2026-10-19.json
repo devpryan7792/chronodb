@@ -1,0 +1,173 @@
+{
+  "date": "2026-10-19",
+  "platform": "Arch Linux, warm page cache, tmpfs workdir, release build",
+  "units": "microseconds",
+  "note": "Produced by `cargo build --release && python3 bench/compare_read.py`; the numbers are exactly those reported in bench/README.md. Regenerate the chart with `python3 bench/render_charts.py`.",
+  "config": {
+    "records": 200000,
+    "entities": 1000,
+    "payload_bytes": 64,
+    "queries": 50000,
+    "latest": 20000,
+    "scans": 2000,
+    "seed": 24301
+  },
+  "engines": {
+    "chronodb": {
+      "label": "ChronoDB",
+      "settings": "mmap + sparse index, in-process Rust",
+      "build_secs": 0.052,
+      "file_mib": 21.2,
+      "asof": {
+        "n": 50000,
+        "hits": 50000,
+        "mean": 0.6,
+        "p50": 0.5,
+        "p90": 0.85,
+        "p99": 2.08,
+        "p999": 11.05,
+        "max": 27.95,
+        "rel_p50": 1.0
+      },
+      "latest": {
+        "n": 20000,
+        "hits": 20000,
+        "mean": 0.18,
+        "p50": 0.16,
+        "p90": 0.21,
+        "p99": 0.41,
+        "p999": 0.82,
+        "max": 13.6,
+        "rel_p50": 1.0
+      },
+      "entity_scan": {
+        "n": 2000,
+        "hits": 2000,
+        "mean": 23.72,
+        "p50": 23.64,
+        "p90": 28.71,
+        "p99": 45.21,
+        "p999": 53.54,
+        "max": 58.9,
+        "rel_p50": 1.0
+      }
+    },
+    "sqlite": {
+      "label": "SQLite",
+      "settings": "stdlib defaults (page cache + pread), Python client",
+      "build_secs": 1.218,
+      "file_mib": 20.4,
+      "asof": {
+        "n": 50000,
+        "hits": 50000,
+        "mean": 6.95,
+        "p50": 6.28,
+        "p90": 7.75,
+        "p99": 18.78,
+        "p999": 75.4,
+        "max": 308.92,
+        "rel_p50": 12.5
+      },
+      "latest": {
+        "n": 20000,
+        "hits": 20000,
+        "mean": 5.52,
+        "p50": 5.11,
+        "p90": 5.83,
+        "p99": 11.95,
+        "p999": 40.31,
+        "max": 369.76,
+        "rel_p50": 31.96
+      },
+      "entity_scan": {
+        "n": 2000,
+        "hits": 2000,
+        "mean": 242.3,
+        "p50": 241.12,
+        "p90": 291.0,
+        "p99": 375.71,
+        "p999": 468.52,
+        "max": 484.83,
+        "rel_p50": 10.2
+      }
+    },
+    "sqlite-mmap": {
+      "label": "SQLite (mmap)",
+      "settings": "PRAGMA mmap_size=256 MiB, Python client",
+      "build_secs": null,
+      "file_mib": 20.4,
+      "asof": {
+        "n": 50000,
+        "hits": 50000,
+        "mean": 5.83,
+        "p50": 5.16,
+        "p90": 6.81,
+        "p99": 15.44,
+        "p999": 54.66,
+        "max": 368.3,
+        "rel_p50": 10.27
+      },
+      "latest": {
+        "n": 20000,
+        "hits": 20000,
+        "mean": 5.34,
+        "p50": 4.61,
+        "p90": 7.11,
+        "p99": 12.92,
+        "p999": 57.79,
+        "max": 376.66,
+        "rel_p50": 28.83
+      },
+      "entity_scan": {
+        "n": 2000,
+        "hits": 2000,
+        "mean": 135.17,
+        "p50": 131.48,
+        "p90": 164.92,
+        "p99": 232.26,
+        "p999": 282.21,
+        "max": 539.07,
+        "rel_p50": 5.56
+      }
+    },
+    "duckdb": {
+      "label": "DuckDB 1.5.6",
+      "settings": "ART index on (entity, ts); planner uses a sequential scan, Python client",
+      "build_secs": 107.93,
+      "file_mib": 13.0,
+      "asof": {
+        "n": 50000,
+        "hits": 50000,
+        "mean": 1445.37,
+        "p50": 1366.22,
+        "p90": 1779.98,
+        "p99": 2502.94,
+        "p999": 4048.44,
+        "max": 7773.91,
+        "rel_p50": 2721.56
+      },
+      "latest": {
+        "n": 20000,
+        "hits": 20000,
+        "mean": 1200.0,
+        "p50": 1143.21,
+        "p90": 1430.09,
+        "p99": 1945.76,
+        "p999": 3082.27,
+        "max": 4568.44,
+        "rel_p50": 7145.09
+      },
+      "entity_scan": {
+        "n": 2000,
+        "hits": 2000,
+        "mean": 1328.36,
+        "p50": 1194.57,
+        "p90": 1637.09,
+        "p99": 2776.37,
+        "p999": 5323.48,
+        "max": 7060.85,
+        "rel_p50": 50.53
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 300" width="1280" height="300" role="img" aria-label="ChronoDB — append-only time-travel storage engine">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#060912"/>
+      <stop offset="0.55" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#111a2e"/>
+    </linearGradient>
+    <linearGradient id="word" x1="0" y1="0" x2="1" y2="0.2">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="0.55" stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#a5b4fc"/>
+    </linearGradient>
+    <linearGradient id="rail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="0.5" stop-color="#334155"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#818cf8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#818cf8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.1" fill="#1e293b"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="300" fill="url(#bg)"/>
+  <rect width="1280" height="300" fill="url(#dots)" opacity="0.75"/>
+
+  <!-- wordmark -->
+  <text x="76" y="132" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="88" font-weight="700" letter-spacing="1.5" fill="url(#word)">ChronoDB</text>
+  <text x="80" y="166" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="20" fill="#94a3b8">append-only time-travel storage engine · Rust</text>
+
+  <!-- query chip -->
+  <g>
+    <rect x="866" y="76" width="338" height="96" rx="12" fill="#070d18" stroke="#1e293b"/>
+    <circle cx="890" cy="100" r="4" fill="#2dd4bf"/>
+    <text x="904" y="105" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="15" fill="#7dd3fc">get_as_of(42, t)</text>
+    <text x="890" y="132" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="13.5" fill="#64748b">→ temperature=21.4</text>
+    <text x="890" y="157" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="13.5" fill="#5eead4">0.50 µs · CRC verified</text>
+  </g>
+
+  <!-- timeline -->
+  <line x1="76" y1="236" x2="1204" y2="236" stroke="url(#rail)" stroke-width="2"/>
+  <ellipse cx="452" cy="236" rx="70" ry="26" fill="url(#glow2)"/>
+  <ellipse cx="812" cy="236" rx="86" ry="30" fill="url(#glow)"/>
+
+  <g fill="#334155">
+    <circle cx="188" cy="236" r="5"/>
+    <circle cx="316" cy="236" r="5"/>
+    <circle cx="452" cy="236" r="6" fill="#818cf8"/>
+    <circle cx="576" cy="236" r="5"/>
+    <circle cx="696" cy="236" r="5"/>
+    <circle cx="940" cy="236" r="5"/>
+    <circle cx="1064" cy="236" r="5"/>
+  </g>
+
+  <!-- highlighted version -->
+  <circle cx="812" cy="236" r="7.5" fill="#2dd4bf"/>
+  <circle cx="812" cy="236" r="13" fill="none" stroke="#2dd4bf" stroke-opacity="0.35" stroke-width="1.5"/>
+
+  <!-- as-of cursor -->
+  <line x1="812" y1="196" x2="812" y2="278" stroke="#5eead4" stroke-width="1.4"
+        stroke-dasharray="5 6" stroke-opacity="0.8">
+    <animate attributeName="stroke-dashoffset" from="0" to="-22" dur="1.8s" repeatCount="indefinite"/>
+  </line>
+  <text x="812" y="292" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="12.5" fill="#5eead4" text-anchor="middle">as of t</text>
+  <text x="188" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="12" fill="#475569" text-anchor="middle">lsn 1</text>
+  <text x="1064" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="12" fill="#475569" text-anchor="middle">lsn n</text>
+</svg>
